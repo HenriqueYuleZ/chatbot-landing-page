@@ -192,7 +192,7 @@ const Integrations = () => {
           </div>
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">&lt;2s</div>
-            <div className="text-gray-600">Tempo de sincronização</div>
+            <div className="text-gray-600">Tempo de resposta</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>

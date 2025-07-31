@@ -1,5 +1,7 @@
 import { Bot, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Github } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const footerLinks = {
@@ -22,18 +24,19 @@ const Footer = () => {
       { name: "API", href: "#api" }
     ],
     legal: [
-      { name: "Privacidade", href: "#privacidade" },
+      { name: "Privacidade", href: "/privacidade", isRoute: true },
       { name: "Termos de Uso", href: "#termos" },
       { name: "Cookies", href: "#cookies" },
-      { name: "LGPD", href: "#lgpd" }
+      { name: "LGPD", href: "/lgpd", isRoute: true }
     ]
   }
 
   const socialLinks = [
-    { icon: Facebook, href: "#", name: "Facebook" },
-    { icon: Twitter, href: "#", name: "Twitter" },
-    { icon: Linkedin, href: "#", name: "LinkedIn" },
-    { icon: Instagram, href: "#", name: "Instagram" }
+    // { icon: Facebook, href: "#", name: "Facebook" },
+    // { icon: Twitter, href: "#", name: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/henrique-yule-zaffanelli/", name: "LinkedIn" },
+    { icon: Github, href: "https://github.com/HenriqueYuleZ", name: "Github" }
+    // { icon: Instagram, href: "#", name: "Instagram" }
   ]
 
   return (
@@ -59,15 +62,15 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">contato@chatbotia.com</span>
+                <span className="text-gray-300">yzhenrique@gmail.com</span>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
                 <span className="text-gray-300">+55 (11) 9999-9999</span>
-              </div>
+              </div> */}
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">São Paulo, SP - Brasil</span>
+                <span className="text-gray-300">Campo Grande, MS - Brasil</span>
               </div>
             </div>
 
@@ -141,12 +144,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-gray-300 hover:text-blue-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.isRoute ? (
+                    <Link 
+                      to={link.href}
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={link.href}
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
